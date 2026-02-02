@@ -1,0 +1,20 @@
+{
+  "name": "vuviy/migrate",
+  "description": "migrate",
+
+
+  "require": {
+    "php": "^8.3",
+    "ext-pdo": "*",
+    "spomky-labs/otphp": "^11.4",
+    "larapack/dd": "^1.1"
+  },
+  "require-dev": {
+    "squizlabs/php_codesniffer": "3.*"
+  },
+  "autoload": {
+    "psr-4": {
+      "App\\": "src/"
+    }
+  }
+}
