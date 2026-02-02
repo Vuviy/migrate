@@ -2,18 +2,18 @@
 
 declare(strict_types=1);
 
-use App\Router;
 
-require __DIR__ . '/func/functions.php';
 require __DIR__ . '/vendor/autoload.php';
-require __DIR__ . '/bootstrap.php';
 
 
-$router = new Router($container);
+$schema = new \App\DB\Scheme();
 
-require __DIR__ . '/routes/web.php';
+$schema->setName('nameeee')
+    ->addColumn('col1', 'varchar')
+    ->addColumn('col2', 'integer')
+    ->addColumn('col3', 'integer');
+
+dd($schema->query());
 
 
-$response = $router->dispatch();
 
-$response->send();
