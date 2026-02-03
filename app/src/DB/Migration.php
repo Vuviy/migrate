@@ -2,22 +2,17 @@
 
 namespace App\DB;
 
-class Migration
+abstract class Migration
 {
-    public function up(): string
+    protected Schema $schema;
+    protected DB $db;
+
+    public function __construct()
     {
-        $scheme = new Scheme();
-
-         return $scheme->setName('nameeee')
-            ->addColumn('col1', 'varchar')
-            ->addColumn('col2', 'integer')
-            ->addColumn('col3', 'integer')
-             ->query();
-
+        $this->db = new DB();
+        $this->schema = new Schema();
     }
 
-    public function down()
-    {
-
-    }
+    abstract public function up(): void;
+    abstract public function down(): void;
 }

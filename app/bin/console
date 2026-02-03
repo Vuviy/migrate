@@ -3,16 +3,26 @@
 
 require __DIR__ . '/../vendor/autoload.php';
 
-use App\Console\MyCommand;
-use App\Console\MyCommand2;
+use App\Console\FreshCommand;
+use App\Console\MakeMigrationCommand;
+use App\Console\MigrateCommand;
+use App\Console\ResetCommand;
+use App\Console\RollbackCommand;
+use App\Console\SeedCommand;
+use App\Console\StatusCommand;
 use Symfony\Component\Console\Application;
 
 $app = new Application('My CLI');
 
 $app->addCommands(
         [
-            new MyCommand(),
-            new MyCommand2()
+            new MakeMigrationCommand(),
+            new MigrateCommand(),
+            new RollbackCommand(),
+            new ResetCommand(),
+            new FreshCommand(),
+            new StatusCommand(),
+            new SeedCommand(),
         ]);
 
 $app->run();
